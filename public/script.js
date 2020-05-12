@@ -1,13 +1,15 @@
 document.addEventListener('DOMContentLoaded',()=>{
     const socket = io.connect();
 
-    
+    var color = document.getElementById('color').value;
+    var tamLinha = document.getElementById('linha').value
 
     const pincel ={
         ativo:false,
         movendo:false,
         pos:{x:0,y:0},
-        posAnterior:null
+        posAnterior:null,
+        
     }
     const tela = document.querySelector('#tela');
 
@@ -17,14 +19,15 @@ document.addEventListener('DOMContentLoaded',()=>{
     tela.height=500;
 
     
-    var color = document.getElementById('color').value;
-    var tamLinha = document.getElementById('linha').value;
+    ;
     contexto.lineWidth = tamLinha;
     const desenharLinha = (linha)=>{
         color = document.getElementById('color').value;
+        
         contexto.strokeStyle =color;
         var tamLinha = document.getElementById('linha').value;
-    contexto.lineWidth = tamLinha;
+        
+        contexto.lineWidth = tamLinha;
         if(linha){
             contexto.beginPath();
             contexto.moveTo(linha.posAnterior.x,linha.posAnterior.y);
