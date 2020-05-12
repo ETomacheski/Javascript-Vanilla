@@ -18,12 +18,14 @@ document.addEventListener('DOMContentLoaded',()=>{
     contexto.lineWidth = 7;
     contexto.strokeStyle  = "red";
     const desenharLinha = (linha)=>{
-
-        
-        contexto.beginPath();
-        contexto.moveTo(linha.posAnterior.x,linha.posAnterior.y);
-        contexto.lineTo(linha.pos.x,linha.pos.y);
-        contexto.stroke();
+        if(linha){
+            contexto.beginPath();
+            contexto.moveTo(linha.posAnterior.x,linha.posAnterior.y);
+            contexto.lineTo(linha.pos.x,linha.pos.y);
+            contexto.stroke();
+        }else{
+            contexto.clearRect(0, 0, tela.width, tela.height);
+        }
     }
     // desenharLinha({pos:{x:350,y:250},posAnterior:{x:10,y:10}});
     tela.onmousedown=(evento)=>{
@@ -50,5 +52,11 @@ document.addEventListener('DOMContentLoaded',()=>{
         pincel.posAnterior= {x:pincel.pos.x, y:pincel.pos.y};
         setTimeout(ciclo,10);
     }
+
+    document.body.addEventListener('keyup', e => {
+        if(e.keyCode === 32){
+          socket.emit('clear')
+        }
+      })
     ciclo();
 })

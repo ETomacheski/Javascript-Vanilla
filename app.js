@@ -28,4 +28,9 @@ io.on('connection',(socket)=>{
         io.emit('desenhar',linha)
     })
 
+    socket.on('clear', ()=>{
+        history = new Array()
+        io.emit('desenhar')
+      })
+
 })
