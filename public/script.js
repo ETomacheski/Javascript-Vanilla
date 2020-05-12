@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded',()=>{
     const socket = io.connect();
 
+    
 
     const pincel ={
         ativo:false,
@@ -16,8 +17,12 @@ document.addEventListener('DOMContentLoaded',()=>{
     tela.height=500;
 
     contexto.lineWidth = 7;
-    contexto.strokeStyle  = "red";
+    var color = document.getElementById('color').value;
+   
     const desenharLinha = (linha)=>{
+        color = document.getElementById('color').value;
+        console.log(color)
+        contexto.strokeStyle =color;
         if(linha){
             contexto.beginPath();
             contexto.moveTo(linha.posAnterior.x,linha.posAnterior.y);
