@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     tela.height=500;
 
     
-    ;
+    
     contexto.lineWidth = tamLinha;
     const desenharLinha = (linha)=>{
         color = document.getElementById('color').value;

@@ -12,9 +12,11 @@
     border: 3px solid;
     background-color: #ffffff;
     
+    cursor: url('./pincel.svg'), auto;
+    
 }
 .center{
-    position: absolute;
+    
     width: 700px;
     height: 500px;
     border: 1px solid #ccc;
