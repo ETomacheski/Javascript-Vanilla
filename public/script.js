@@ -16,13 +16,15 @@ document.addEventListener('DOMContentLoaded',()=>{
     tela.width=700;
     tela.height=500;
 
-    contexto.lineWidth = 7;
+    
     var color = document.getElementById('color').value;
-   
+    var tamLinha = document.getElementById('linha').value;
+    contexto.lineWidth = tamLinha;
     const desenharLinha = (linha)=>{
         color = document.getElementById('color').value;
-        console.log(color)
         contexto.strokeStyle =color;
+        var tamLinha = document.getElementById('linha').value;
+    contexto.lineWidth = tamLinha;
         if(linha){
             contexto.beginPath();
             contexto.moveTo(linha.posAnterior.x,linha.posAnterior.y);
