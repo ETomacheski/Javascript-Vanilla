@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded',()=>{
+    const socket = io.connect();
 
 
     const pincel ={
@@ -37,10 +38,13 @@ document.addEventListener('DOMContentLoaded',()=>{
         pincel.pos.y =  evento.clientY;
         pincel.movendo = true;
     }
-
+    socket.on('desenhar',(linha)=>{
+        desenharLinha(linha);
+    })
     const ciclo = ()=>{
         if(pincel.ativo && pincel.movendo &&pincel.posAnterior){
-            desenharLinha({pos: pincel.pos,posAnterior: pincel.posAnterior})
+            socket.emit('desenhar',{pos: pincel.pos,posAnterior: pincel.posAnterior})
+            //desenharLinha({pos: pincel.pos,posAnterior: pincel.posAnterior})
             pincel.movendo = false;
         }
         pincel.posAnterior= {x:pincel.pos.x, y:pincel.pos.y};

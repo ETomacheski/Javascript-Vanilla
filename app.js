@@ -12,14 +12,20 @@ server.listen(3000, ()=>{
 })
 
 app.use(express.static(__dirname + "/public"));
-
+const historico = [];
 io.on('connection',(socket)=>{
 
     console.log('Nova conexão');
+    
+    historico.forEach(linha => {
+        socket.emit('desenhar',linha)
+    });
 
-    socket.on('Mensagem',()=>{
-        console.log("nova mensagem");
-        io.emit('resposta');
+    
+
+    socket.on('desenhar',(linha)=>{
+        historico.push(linha);
+        io.emit('desenhar',linha)
     })
 
 })
