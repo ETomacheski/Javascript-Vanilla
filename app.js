@@ -2,16 +2,21 @@ const express =  require("express");
 const app = express();
 const http = require('http')
 const server = http.createServer(app);
+const path = require('path');
 
 const socketIo = require('socket.io')
 
 const io = socketIo.listen(server) 
-app.use(express.static(__dirname + "/public"));
+
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 
 app.get('/',(req,res)=>{
-    console.log("acessou por aqui")
-    res.render('index.js')
+        console.log("acessou por aqui")
+        res.render('index')
 })
 const historico = [];
 io.on('connection',(socket)=>{
@@ -38,7 +43,6 @@ io.on('connection',(socket)=>{
       })
 
 })
-
 server.listen(3000, ()=>{
     console.log("running")
 })
