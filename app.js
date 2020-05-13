@@ -18,7 +18,7 @@ app.get('/',(req,res)=>{
         console.log("acessou por aqui")
         res.render('index')
 })
-const historico = [];
+var historico = [];
 io.on('connection',(socket)=>{
 
     console.log('Nova conexão');
@@ -38,7 +38,7 @@ io.on('connection',(socket)=>{
     })
 
     socket.on('clear', ()=>{
-        history = new Array()
+        historico = new Array()
         io.emit('desenhar')
       })
 
