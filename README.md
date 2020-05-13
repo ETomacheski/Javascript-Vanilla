@@ -51,8 +51,8 @@ Depois basta acessar http://localhost:3000/ no navegador.
 -Socket.io
 
 
-## Autor
-👤Eduardo Tomacheski
+## 👤Autor
+Eduardo Tomacheski
 
 
 Github: [@Eduardo Tomacheski](https://github.com/ETomacheski) 
