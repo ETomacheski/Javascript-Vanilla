@@ -1,9 +1,10 @@
 *{
     margin: 0;
     padding: 0;
-    background-color: #00008B;
+    background-color:#02213d;
+    position: relative;
+    font-family: Helvetica, sans-serif;
     
-
 }
 
 #tela{
@@ -11,23 +12,46 @@
     height: 500px;
     border: 3px solid;
     background-color: #ffffff;
+    float: left;
     
     cursor: url('./pincel.svg'), auto;
     
 }
-.center{
+
+
+.text{
+    color:#c5d7ed;
+    text-align: center;
+    padding: 5px;
     
-    width: 700px;
-    height: 500px;
-    border: 1px solid #ccc;
+    
+}
+input{
+    margin-top: 5px;
+    color: wheat;
+    width: 30px;
     
 }
 
-.text{
-    color: wheat;
-    margin-left: 50%;
+.div{
+    
+    float: left;
+    margin-top: 5%;
+    margin-left: 5%;
+    
 }
-input{
-    color: wheat;
-    width: 30px;
+h1{
+    font-size: 35px;
+}
+h2{
+    font-size: 25px;
+}
+#inputs{
+   margin-left: 30%;
+   font-size: 20px;
+}
+#tam{
+    margin-left: 2%;
+   
+
 }
